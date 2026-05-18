@@ -1,0 +1,112 @@
+.header {
+  display: flex;
+  max-width: var(--cMaxWidth);
+  width: var(--cWidth);
+  justify-content: space-between;
+  padding: 20px 0px;
+  margin-bottom: -100px;
+  box-sizing: border-box;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 15px;
+  z-index: 9999;
+  background: rgba(11, 8, 12, 0.4);
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 100px;
+  padding: 12px 30px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+.header ul {
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  column-gap: 40px;
+  row-gap: 8px;
+  align-items: end;
+}
+.header ul li {
+  margin-left: 0px;
+  letter-spacing: 1px;
+  color: #ccc;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, text-shadow 0.2s;
+}
+.header ul li:hover {
+  transform: translateY(-2px);
+  text-shadow: 1px 1px 0px #7c3aed, 2px 2px 0px #5b21b6, 3px 3px 0px #4c1d95, 4px 4px 5px rgba(0, 0, 0, 0.5);
+  color: #fff;
+}
+.navbar-connect {
+  position: absolute;
+  display: none;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 15px;
+  letter-spacing: 1px;
+  font-weight: 500;
+}
+.navbar-title {
+  font-weight: 900;
+  font-size: 16px;
+  letter-spacing: 2px;
+  color: #fff;
+  text-transform: uppercase;
+  text-shadow: 
+    0px 1px 0px #7c3aed, 
+    0px 2px 0px #5b21b6, 
+    0px 3px 0px #4c1d95, 
+    0px 8px 15px rgba(124, 58, 237, 0.4);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.navbar-title:hover {
+  transform: translateY(-3px) scale(1.02);
+  text-shadow: 
+    0px 1px 0px #c084fc, 
+    0px 3px 0px #a78bfa, 
+    0px 5px 0px #7c3aed, 
+    0px 12px 25px rgba(124, 58, 237, 0.6);
+}
+@media only screen and (min-width: 500px) {
+  .header {
+    padding: 20px 0px;
+  }
+  .header ul {
+    flex-direction: row;
+    align-items: center;
+    font-size: 14px;
+  }
+  .header ul li {
+    color: #eae5ec;
+  }
+  .navbar-title {
+    font-size: 16px;
+  }
+}
+@media only screen and (min-width: 900px) {
+  .navbar-connect {
+    display: block;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .header {
+    padding: 35px 0px;
+  }
+  .header ul {
+    column-gap: 80px;
+    font-size: 16px;
+  }
+  .navbar-connect {
+    font-size: 16px;
+  }
+  .navbar-title {
+    font-size: 18px;
+  }
+}

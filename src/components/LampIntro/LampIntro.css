@@ -1,0 +1,58 @@
+/* ───────────────────────────────────────────────────
+   LAMP INTRO — Cinematic Dark-Start Overlay
+   ─────────────────────────────────────────────────── */
+
+.lamp-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99999999999;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: opacity 1.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.lamp-overlay.lamp-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.lamp-overlay canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+
+/* Subtle hint text — fades after a few seconds */
+.lamp-hint {
+  position: absolute;
+  bottom: 12%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(194, 164, 255, 0.5);
+  font-family: "Geist", sans-serif;
+  font-size: 14px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  animation: lampHintPulse 2.5s ease-in-out infinite;
+  pointer-events: none;
+  user-select: none;
+}
+
+@keyframes lampHintPulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.7; }
+}
+
+/* Loading indicator — tiny bar at bottom, nearly invisible */
+.lamp-loading-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #7c3aed, #c084fc);
+  transition: width 0.4s ease-out;
+  opacity: 0.3;
+}
