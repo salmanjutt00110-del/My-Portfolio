@@ -97,7 +97,9 @@ const LampIntro = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [hintVisible, setHintVisible] = useState(true);
   const [visible, setVisible] = useState(false); // fade-in after loading
-  const { isLoadingDone, isActivated, setIsActivated } = useLoading();
+  const { isLoading } = useLoading();
+  const [isActivated, setIsActivated] = useState(false);
+  const isLoadingDone = !isLoading;
   const activatedRef = useRef(false);
 
   // Show lamp only once loading screen has exited
@@ -105,7 +107,7 @@ const LampIntro = () => {
     if (isLoadingDone && !isActivated) {
       setVisible(true);
     }
-  }, [isLoadingDone]);
+  }, [isLoadingDone, isActivated]);
 
   useEffect(() => {
     if (!visible || !containerRef.current) return;
@@ -162,7 +164,7 @@ const LampIntro = () => {
     scene.add(spotLight.target);
 
     // Build lamp
-    const { group: lampGroup, bulb, bulbLight, bulbMat } = createLamp();
+    const { group: lampGroup, bulbLight, bulbMat } = createLamp();
     scene.add(lampGroup);
 
     // Idle pulse
